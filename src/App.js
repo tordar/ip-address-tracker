@@ -2,7 +2,9 @@ import './App.css';
 import Header from '../src/components/Header'
 import Information from '../src/components/Information'
 import background from '../src/images/pattern-bg.png'
-// import SearchBar from '../src/components/SearchBar'
+import SearchBar from '../src/components/SearchBar'
+import { ReactComponent as Location } from '../src/images/icon-location.svg';
+
 
 function App() {
   return (
@@ -13,9 +15,9 @@ function App() {
           
       </div>
 
-{/* <div className="search">
+<div className="search">
           <SearchBar /> 
-          </div> */}
+          </div>
       
     
       <div className='output'>
@@ -35,8 +37,12 @@ function App() {
           header='ISP'
           output='Telia'
         />
+        
       </div>
     
+    <div>
+    <Location/>
+    </div>
       
     </div>
   );
