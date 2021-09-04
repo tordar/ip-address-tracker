@@ -1,6 +1,6 @@
-/* body{
-  background-color: blue;
-} */
+#root{
+  max-height: 100vh;
+}
 
 .header {
     max-width: 60%;
@@ -23,16 +23,21 @@
 .search {
   position: absolute;
   top: 15%;
-  left: 32%;
+  left: 31%;
   max-width: 70%;
   background-color: white;
   color: black;
+  border-radius: 10px;
+  border: none;
 }
 
 
 .searchBar {
   width: 500px;
   height: 40px;
+  border-radius: 10px;
+  border: none;
+
 }
 
 .output{
@@ -47,8 +52,15 @@
   border-radius: 10px;
   background-color: white;
   color: black;
+  z-index: 1;
 }
 
 .propHeader {
   color: gray
+}
+
+.leaflet-container{
+  height: 80vh;
+  bottom: 120px;
+  z-index: -1;
 }
