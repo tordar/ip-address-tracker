@@ -11,6 +11,9 @@ import React, { useState } from 'react';
 function App() {
 
   const [ipAddress, setipAddress] = useState('');
+  const [location, setLocation] = useState([51.505, -0.09]);
+
+  // Create function that gives location of IP address
 
 
   return (
@@ -48,12 +51,12 @@ function App() {
       </div>
    
       
-    <MapContainer center={[51.505, -0.09]} zoom={10} scrollWheelZoom={true}>
+    <MapContainer center={location} zoom={10} scrollWheelZoom={true}>
   <TileLayer
     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
-  <Marker position={[51.505, -0.09]}>
+  <Marker position={location}>
     <Popup>
       A pretty CSS3 popup. <br /> Easily customizable.
     </Popup>
