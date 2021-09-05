@@ -3,29 +3,34 @@ import Header from '../src/components/Header'
 import Information from '../src/components/Information'
 import background from '../src/images/pattern-bg.png'
 import SearchBar from '../src/components/SearchBar'
-// import Map from '../src/components/Map'
 // import { ReactComponent as Location } from '../src/images/icon-location.svg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import React, { useState } from 'react';
 
 
 function App() {
+
+  const [ipAddress, setipAddress] = useState('');
+
+
   return (
     <div className="App">
       <div className="hero">
         <Header />
         <img src={background} alt='background'></img>
-          
       </div>
 
 <div className="search">
-          <SearchBar /> 
+          <SearchBar 
+            ipAddress={ipAddress}
+            setipAddress={setipAddress}
+          /> 
           </div>
       
-    
       <div className='output'>
         <Information 
           header='IP Address'
-          output='123.43.234'
+          output={ipAddress}
         />
         <Information 
           header='Location'

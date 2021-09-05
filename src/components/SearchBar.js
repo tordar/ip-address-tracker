@@ -1,11 +1,32 @@
-import arrow from '../images/icon-arrow.svg'
+// import arrow from '../images/icon-arrow.svg'
 
-export const SearchBar = () => {
+
+export const SearchBar = ({
+    ipAddress, setipAddress}
+    ) => {
+    // let output = 0
+
+    const inputTextHandler = (e) => {
+        setipAddress(e.target.value)
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            inputTextHandler(e)
+        }
+      }
+
     return (
-        <div>
-            <input class='searchBar' type='text' placeholder='Search for any IP address or domain'></input>
-            <img src={arrow} class='arrow' alt='arrow'></img>
-        </div>
+        <form>
+            <input 
+                class='searchBar' 
+                type='text' 
+                placeholder='type something' 
+                onKeyDown={handleKeyDown}
+            ></input>
+            {/* <input type='submit' value='click me' class='arrow' alt='arrow'></input> */}
+        </form>
     )
 }
 
