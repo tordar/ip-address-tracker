@@ -12,6 +12,9 @@ function App() {
   
   const [ipAddress, setipAddress] = useState('');
   const [location, setLocation] = useState([51.505, -0.09]);
+  const [city, setCity] = useState('London');
+  const [timezone, setTimezone] = useState('UTC');
+  const [isp, setIsp] = useState('Telia');
 
   // Create function that gives location of IP address
 
@@ -37,15 +40,15 @@ function App() {
         />
         <Information 
           header='Location'
-          output='New York'
+          output={city}
         />
         <Information 
           header='Timezone'
-          output='UTC'
+          output={timezone}
         />
         <Information 
           header='ISP'
-          output='Telia'
+          output={isp}
         />
         
       </div>
