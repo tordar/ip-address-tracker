@@ -26,7 +26,7 @@
         $(function () {
            $.ajax({
                url: "https://geo.ipify.org/api/v1",
-               data: {apiKey: 'at_7gimcXZcQXLn70B7crWcYrJ2IcrYA', ipAddress: ip},
+               data: {apiKey: api_key, ipAddress: ip},
                success: function(data) {
                  console.log(data)
                }
