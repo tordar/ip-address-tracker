@@ -2,30 +2,35 @@
 
 
 export const SearchBar = ({
-    ipAddress, setipAddress}
-    ) => {
+    ipAddress, 
+    setipAddress,
+    inputText,
+    setInputText
+    }) => {
     // let output = 0
 
     const inputTextHandler = (e) => {
-        setipAddress(e.target.value)
+        console.log(e.target.value)
+        setInputText(e.target.value)
+        setipAddress(inputText)
+        // console.log(ipAddress)
     }
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            inputTextHandler(e)
-        }
-      }
-
+    
+    // const handleKeyDown = (e) => {
+    //     if (e.key === 'Enter') {
+    //         e.preventDefault()
+    //         inputTextHandler(e)
+    //     }
+    //   }
     return (
         <form>
             <input 
                 class='searchBar' 
                 type='text' 
-                placeholder='type something' 
-                onKeyDown={handleKeyDown}
+                placeholder='' 
+                value={inputText} 
+                onChange={inputTextHandler} 
             ></input>
-            {/* <input type='submit' value='click me' class='arrow' alt='arrow'></input> */}
         </form>
     )
 }

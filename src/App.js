@@ -1,8 +1,8 @@
 import './App.css';
 import Header from '../src/components/Header'
 import Information from '../src/components/Information'
-import background from '../src/images/pattern-bg.png'
 import SearchBar from '../src/components/SearchBar'
+import background from '../src/images/pattern-bg.png'
 // import { ReactComponent as Location } from '../src/images/icon-location.svg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React, { useState } from 'react';
@@ -10,15 +10,17 @@ import React, { useState } from 'react';
 
 
 function App() {
-
-  
-  const [ipAddress, setipAddress] = useState('');
+  const [inputText, setInputText] = useState('')
+  const [ipAddress, setipAddress] = useState(0);
   const [location, setLocation] = useState([51.505, -0.09]);
   const [city, setCity] = useState('London');
   const [timezone, setTimezone] = useState('UTC');
   const [isp, setIsp] = useState('Telia');
 
+
+
   // Create function that gives location of IP address
+
 
 
   return (
@@ -28,12 +30,18 @@ function App() {
         <img src={background} alt='background'></img>
       </div>
 
+
 <div className="search">
           <SearchBar 
+            inputText={inputText}
+            setInputText={setInputText}
             ipAddress={ipAddress}
             setipAddress={setipAddress}
           /> 
+           <button>Hello</button>
+          
           </div>
+          
       
       <div className='output'>
         <Information 
