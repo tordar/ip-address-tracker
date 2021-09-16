@@ -8,6 +8,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React, { useState, useEffect } from 'react';
 import IpTracker from './components/IpTracker';
 import $ from 'jquery'
+import { env } from 'process';
 
 
 function App() {
@@ -19,27 +20,29 @@ function App() {
   const [timezone, setTimezone] = useState('UTC');
   const [isp, setIsp] = useState('Telia');
 
+console.log(process.env.REACT_APP_IPifyPasskey)
 
-  const clickHandler = (ipAddress, setipAddress) => {
-    console.log('hey')
+  // const clickHandler = (ipAddress, setipAddress) => {
+  
+  //   });
+  //   });
+  // }
+  
+  console.log('hey')
     var ip = "8.8.8.8";
     var api_key = "";
     $(function () {
     $.ajax({
         url: "https://geo.ipify.org/api/v1",
-        data: {apiKey: '', ipAddress: ipAddress},
+        data: {apiKey: process.env.REACT_APP_IPifyPasskey, ipAddress: ipAddress},
         success: function(data) {
-            setipAddress = data.ipAddress
-            // $("#ip").append("<pre>"+ JSON.stringify(data,"",2)+"</pre>");
-            // $("#ip").append("<pre>"+ JSON.stringify(data.ip,"",2)+"</pre>");
-
+            // setipAddress = data.ipAddress
+            $("#ip").append("<pre>"+ JSON.stringify(data,"",2)+"</pre>");
+            $("#ip").append("<pre>"+ JSON.stringify(data.ip,"",2)+"</pre>");
         }
-    });
-    });
-  }
-  
-
-
+      }
+    )})
+    
 
   return (
     <div className="App">
@@ -76,7 +79,7 @@ function App() {
           header='ISP'
           output={isp}
         />
-        <button onClick={clickHandler}>click me</button>
+        {/* <button onClick={clickHandler}>click me</button> */}
       </div>
    
     <MapContainer center={location} zoom={10} scrollWheelZoom={true}>
