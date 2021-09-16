@@ -5,11 +5,11 @@ import SearchBar from '../src/components/SearchBar'
 import background from '../src/images/pattern-bg.png'
 // import { ReactComponent as Location } from '../src/images/icon-location.svg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 
 
 function App() {
+  const [count, setCount] = useState(0)
   const [inputText, setInputText] = useState('')
   const [ipAddress, setipAddress] = useState(0);
   const [location, setLocation] = useState([51.505, -0.09]);
@@ -17,11 +17,14 @@ function App() {
   const [timezone, setTimezone] = useState('UTC');
   const [isp, setIsp] = useState('Telia');
 
-
+  // useEffect(() => {
+  //   if(ipAddress !== 0){
+  //     setCity = "hello"
+  //   }
+    
+  // });
 
   // Create function that gives location of IP address
-
-
 
   return (
     <div className="App">
@@ -38,10 +41,9 @@ function App() {
             ipAddress={ipAddress}
             setipAddress={setipAddress}
           /> 
-           <button>Hello</button>
-          
-          </div>
-          
+          {/* <Button /> */}
+           <button onClick={() => setCount( count + 1 ) }>You clicked state {count} times</button>
+      </div>
       
       <div className='output'>
         <Information 
@@ -60,10 +62,8 @@ function App() {
           header='ISP'
           output={isp}
         />
-        
       </div>
    
-      
     <MapContainer center={location} zoom={10} scrollWheelZoom={true}>
   <TileLayer
     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

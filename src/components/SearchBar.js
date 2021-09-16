@@ -1,4 +1,5 @@
 // import arrow from '../images/icon-arrow.svg'
+import Button from './Button'
 
 
 export const SearchBar = ({
@@ -12,25 +13,28 @@ export const SearchBar = ({
     const inputTextHandler = (e) => {
         console.log(e.target.value)
         setInputText(e.target.value)
-        setipAddress(inputText)
-        // console.log(ipAddress)
+        
     }
+
+    const handleSubmit = (e) => {
+        if (inputText) {
+          setipAddress(inputText);
+        }
+        e.preventDefault()
+    }
+        
     
-    // const handleKeyDown = (e) => {
-    //     if (e.key === 'Enter') {
-    //         e.preventDefault()
-    //         inputTextHandler(e)
-    //     }
-    //   }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
+                onChange={inputTextHandler}
                 class='searchBar' 
                 type='text' 
                 placeholder='' 
-                value={inputText} 
-                onChange={inputTextHandler} 
+                // value={inputText} 
+                
             ></input>
+            <Button />
         </form>
     )
 }
