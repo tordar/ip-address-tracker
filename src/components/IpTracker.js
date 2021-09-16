@@ -1,34 +1,49 @@
 import $ from 'jquery'
-import { env } from 'process';
 
 
 export const IpTracker = ({
     ipAddress, 
     setipAddress,
+    city,
+    setCity,
+    timeZone,
+    setTimezone,
+    isp,
+    setIsp,
     inputText,
-    setInputText
+    setInputText,
+    latitude,
+    setLatitude,
+    longitude,
+    setLongitude
     }) => {
-    // let output = 0
+     
 
-
-    console.log('hey')
-    var ip = "8.8.8.8";
-    var api_key = "";
-    $(function () {
-    $.ajax({
-        url: "https://geo.ipify.org/api/v1",
-        data: {apiKey: process.env.REACT_APP_IPifyPasskey, ipAddress: ipAddress},
-        success: function(data) {
-            $("#ip").append("<pre>"+ JSON.stringify(data,"",2)+"</pre>");
-            $("#ip").append("<pre>"+ JSON.stringify(data.ip,"",2)+"</pre>");
-
-        }
-    });
-    });
+    const ipTracker = () => {
+        console.log('hey')
+        $(function () {
+        $.ajax({
+            url: "https://geo.ipify.org/api/v1",
+            data: {apiKey: process.env.REACT_APP_IPifyPasskey, ipAddress: inputText},
+            success: function(data) {
+                console.log(data)
+                setipAddress(data.ip);
+                setCity(data.location.city)
+                setTimezone(data.location.timezone)
+                setIsp(data.isp)
+                setLatitude(data.location.lat)
+                setLongitude(data.location.lng)
+            }
+        });
+        });
+    }
+ 
 
      
     return (
-        <div id='ip'></div>
+        <div>
+            <button onClick={ipTracker}>Get IP info</button>
+        </div>
     )
 }
 
