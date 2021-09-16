@@ -13,7 +13,6 @@ export const SearchBar = ({
     const inputTextHandler = (e) => {
         console.log(e.target.value)
         setInputText(e.target.value)
-        
     }
 
     const handleSubmit = (e) => {
