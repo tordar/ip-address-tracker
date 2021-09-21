@@ -19,6 +19,8 @@ export const SearchBar = ({
     setLongitude
     }) => {
 
+   
+
     const inputTextHandler = (e) => {
         console.log(e.target.value)
         setInputText(e.target.value)
@@ -39,6 +41,7 @@ export const SearchBar = ({
                 className='searchBar' 
                 type='text' 
                 placeholder='' 
+                
             ></input>
             <IpTracker 
             inputText={inputText}
@@ -56,7 +59,8 @@ export const SearchBar = ({
             longitude={longitude}
             setLongitude={setLongitude}
             />
-        </form>
+            </form>
+            
         
     )
 }

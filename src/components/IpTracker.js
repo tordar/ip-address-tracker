@@ -1,4 +1,6 @@
 import $ from 'jquery'
+// import React, { useEffect } from 'react';
+
 
 
 export const IpTracker = ({
@@ -18,6 +20,13 @@ export const IpTracker = ({
     setLongitude
     }) => {
      
+
+    // useEffect(() => {
+    //     ipTracker()
+    // return () => {
+            
+    //     }
+    // })
 
     const ipTracker = () => {
         console.log('hey')
@@ -42,7 +51,7 @@ export const IpTracker = ({
      
     return (
         <div>
-            <button onClick={ipTracker}>Get IP info</button>
+            <button id="ipButton" onClick={ipTracker}>Get IP info</button>
         </div>
     )
 }

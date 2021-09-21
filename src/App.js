@@ -6,8 +6,6 @@ import background from '../src/images/pattern-bg.png'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import React, { useState } from 'react';
 
-
-
 function App() {
   const [inputText, setInputText] = useState('')
   const [ipAddress, setipAddress] = useState(0);
@@ -16,8 +14,6 @@ function App() {
   const [city, setCity] = useState('London');
   const [timezone, setTimezone] = useState('UTC');
   const [isp, setIsp] = useState('Telia');
-
-
 
   return (
     <div className="App">

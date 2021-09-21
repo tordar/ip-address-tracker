@@ -31,6 +31,12 @@
   border: none;
 }
 
+#ipButton{
+  position: absolute;
+  height: 42px;
+  bottom: 0px;
+  left: 430px;
+}
 
 .searchBar {
   width: 500px;
