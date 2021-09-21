@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <header>
-            <h1 className="header">IP ADDRESS TRACKER</h1>
+            <h1 className="header">IP Address Tracker</h1>
         </header>
     )
 }
