@@ -35,7 +35,7 @@ export const SearchBar = ({
         
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
             <input 
                 onChange={inputTextHandler}
                 className='searchBar' 

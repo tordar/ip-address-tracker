@@ -1,5 +1,6 @@
 .App{
   max-height: 100vh;
+  max-width: 100vw;
 }
 
 .header {
@@ -18,6 +19,7 @@
 .hero {
   position: relative;
   text-align: center;
+  max-width: 100vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -28,30 +30,19 @@
 }
 
 .search {
-  position: absolute;
-  top: 15%;
-  left: 31%;
-  max-width: 70%;
+  position: relative;
+  transform: translate(90%, -350%);
+  width: 500px;
   background-color: white;
   color: black;
   border-radius: 10px;
   border: none;
 }
-
-@media only screen and (max-width: 600px) {
-  .search {
-    left: 5%;
-    max-width: 30%;
-  }
+.form {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
 }
-
-#ipButton{
-  position: absolute;
-  height: 42px;
-  bottom: 0px;
-  left: 430px;
-}
-
 .searchBar {
   width: 500px;
   height: 40px;
@@ -59,8 +50,48 @@
   border: none;
 }
 
+@media only screen and (max-width: 600px) {
+  .search {
+    transform: translate(20%, -350%);
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .searchBar {
+    width: 250px;
+  }
+}
+
+#ipButton{
+  position: relative;
+  height: 43px;
+  transform: translate(540%, -100%);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  #ipButton {
+    transform: translate(230%, -100%);
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .searchBar {
+   width: 250px;
+  }
+}
+
 .info{
   margin-left: 30px;
+}
+@media only screen and (max-width: 600px) {
+  .info {
+   width: 20px;
+   font-size: smaller;
+   margin-left: 0px;
+  }
 }
 
 .output{
@@ -71,6 +102,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   max-width: 70%;
+  height: 150px;
   border: 2px solid;
   border-radius: 10px;
   background-color: white;
@@ -80,7 +112,10 @@
 
 @media only screen and (max-width: 600px) {
   .output {
-    max-width: 300px;
+    max-width: 60%;
+    top: 10%;
+    left: 20%;
+    transform: translate(-20%, -50%);
   }
 }
 
@@ -89,7 +124,8 @@
 }
 
 .leaflet-container{
-  height: 80vh;
-  bottom: 120px;
+  height: 70vh;
+  bottom: 200px;
   z-index: -1;
+  max-width: 100vw;
 }
