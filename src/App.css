@@ -1,4 +1,4 @@
-#root{
+.App{
   max-height: 100vh;
 }
 
@@ -20,6 +20,13 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .hero img {
+    max-width: 100vw;
+    height: 250px;
+  }
+}
+
 .search {
   position: absolute;
   top: 15%;
@@ -29,6 +36,13 @@
   color: black;
   border-radius: 10px;
   border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    left: 5%;
+    max-width: 30%;
+  }
 }
 
 #ipButton{
@@ -62,6 +76,12 @@
   background-color: white;
   color: black;
   z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .output {
+    max-width: 300px;
+  }
 }
 
 .propHeader {
