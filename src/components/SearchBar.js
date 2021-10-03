@@ -40,8 +40,7 @@ export const SearchBar = ({
                 onChange={inputTextHandler}
                 className='searchBar' 
                 type='text' 
-                placeholder='' 
-                
+                placeholder=''
             ></input>
             <IpTracker 
             inputText={inputText}

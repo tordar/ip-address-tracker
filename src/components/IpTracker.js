@@ -1,8 +1,6 @@
 import $ from 'jquery'
 // import React, { useEffect } from 'react';
 
-
-
 export const IpTracker = ({
     ipAddress, 
     setipAddress,
@@ -20,6 +18,8 @@ export const IpTracker = ({
     setLongitude
     }) => {
      
+// Fails to load in production
+// Also needs to update the map container with location
 
     // useEffect(() => {
     //     ipTracker()
@@ -46,8 +46,6 @@ export const IpTracker = ({
         });
         });
     }
- 
-
      
     return (
         <div>

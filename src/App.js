@@ -3,10 +3,12 @@ import Header from '../src/components/Header'
 import Information from '../src/components/Information'
 import SearchBar from '../src/components/SearchBar'
 import background from '../src/images/pattern-bg.png'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, { useState } from 'react';
+import { MapContainer, TileLayer} from 'react-leaflet'
+import React, { useState, useRef, useEffect } from 'react';
+
 
 function App() {
+  
   const [inputText, setInputText] = useState('')
   const [ipAddress, setipAddress] = useState(0);
   const [latitude, setLatitude] = useState(51.505);
@@ -14,6 +16,22 @@ function App() {
   const [city, setCity] = useState('London');
   const [timezone, setTimezone] = useState('UTC');
   const [isp, setIsp] = useState('Telia');
+
+  const mapRef = useRef();
+
+  useEffect(() => {
+    const { current = {} } = mapRef;
+    console.log(mapRef)
+    const { leafletElement: map } = current;
+
+    if ( !map ) return;
+
+    setTimeout(() => {
+      map.flyTo([28.3852, -81.5639], 14, {
+        duration: 3
+      });
+    }, 1000)
+  }, [])
 
   return (
     <div className="App">
@@ -61,17 +79,12 @@ function App() {
         />
       </div>
    
-    <MapContainer center={[latitude, longitude]} zoom={10} scrollWheelZoom={true}>
-  <TileLayer
-    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[latitude, longitude]}>
-    <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
-  </Marker>
-</MapContainer>
+    <MapContainer ref={mapRef} center={[latitude, longitude]} zoom={10} scrollWheelZoom={true}>
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+    </MapContainer>
     </div>
   );
 }
